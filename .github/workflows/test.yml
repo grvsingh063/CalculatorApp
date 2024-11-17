@@ -17,13 +17,14 @@ jobs:
     steps:
       - name: building a job
         run: |
-          echo "Hi, ${{inputs.name}}
+          echo "Hi, ${{inputs.name}}"
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: deploying
         run: | 
-          echo "Deploy ${{inputs.dockerimage}}
+          echo "Deploy ${{inputs.dockerimage}}"
 
     
