@@ -1,0 +1,29 @@
+name: "cicd_pipeline"
+on:
+    pull_request:
+    workflow_dispatch:
+        inputs:
+            name:
+                description: 'Enter your name'
+                required: true
+            dockerimage:
+                description: "Name of the dockerimage"
+                required: false
+                default: "ubuntu-latest"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: building a job
+        run: |
+          echo "Hi, ${{inputs.name}}
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying
+        run: | 
+          echo "Deploy ${{inputs.dockerimage}}
+
+    
